@@ -42,7 +42,7 @@ for i in range(chances):
     else:
         print("Incorrect!\n ")
         time.sleep(0.5)
-        print("The correct answer is", answer_1, "\n\n ")
+        print("The correct answer is", answer_2, "\n\n ")
         
 time.sleep(2)
         
