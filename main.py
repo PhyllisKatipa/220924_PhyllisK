@@ -64,7 +64,7 @@ for i in range(chances):
 time.sleep(2)
         
 #question 4
-question_4 = print("4) What was Six60's 2020 documentry called?\n(a) Don't Forget Your Roots\n(b) Risu Up\n(c) Forever\n(d) Till the Lights Go Out\n\n ")
+question_4 = print("4) What was Six60's 2020 documentry called?\n(a) Don't Forget Your Roots\n(b) Rise Up\n(c) Forever\n(d) Till the Lights Go Out\n\n ")
 answer_4 = "d"
 
 for i in range(chances):
