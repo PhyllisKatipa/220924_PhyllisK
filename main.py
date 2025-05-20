@@ -1,110 +1,105 @@
 import time
 
-#Welcome the user
-print("Welcome to my Six60 quiz! ")
+# Welcome message
+print("Welcome to my Six60 quiz!")
 time.sleep(1)
 
-#Chances
+# Chances
 chances = 1
-print("You will have", chances, "chance to answer correctly.\n")
+print("You will have", chances, "chance to answer each question.\n")
 time.sleep(2)
 
-#Score
+# Score
 score = 0
 
-#question 1
-question_1 = print("1) What year was Six60 formed?\n(a) 2008\n(b) 2006\n(c) 2010\n(d) 2012\n\n ")
-answer_1 = "a"
+# Quiz Questions (store both letter and full answer)
+quiz_questions = [
+    {
+        "question": "1) What year was Six60 formed?",
+        "options": {
+            "a": "2008",
+            "b": "2006",
+            "c": "2010",
+            "d": "2012"
+        },
+        "answer_letter": "a",
+        "answer_text": "2008"
+    },
+    {
+        "question": "2) Which NZ city did Six60 originate from?",
+        "options": {
+            "a": "Auckland",
+            "b": "Wellington",
+            "c": "Dunedin",
+            "d": "Christchurch"
+        },
+        "answer_letter": "c",
+        "answer_text": "Dunedin"
+    },
+    {
+        "question": "3) How many members are there?",
+        "options": {
+            "a": "4",
+            "b": "6",
+            "c": "3",
+            "d": "7"
+        },
+        "answer_letter": "b",
+        "answer_text": "6"
+    },
+    {
+        "question": "4) What was Six60's 2020 documentary called?",
+        "options": {
+            "a": "Don't Forget Your Roots",
+            "b": "Rise Up",
+            "c": "Forever",
+            "d": "Till the Lights Go Out"
+        },
+        "answer_letter": "d",
+        "answer_text": "Till the Lights Go Out"
+    },
+    {
+        "question": "5) Which song did Six60 re-record in Te Reo Maori for Waiata/Anthems?",
+        "options": {
+            "a": "Sundown",
+            "b": "Don't Forget Your Roots",
+            "c": "Purple",
+            "d": "Mothers Eyes"
+        },
+        "answer_letter": "b",
+        "answer_text": "Don't Forget Your Roots"
+    }
+]
 
-for i in range(chances):
-    answer = input("Answer: ")
-    if (answer.lower() == answer_1):
-        print("Correct!\n")
-        score = score + 1
-        break
-    else:
-        print("Incorrect!\n ")
-        time.sleep(0.5)
-        print("The correct answer is", answer_1, "\n\n ")
-        
-time.sleep(2)
-        
-#question 2
-question_2 = print("2) Which NZ city did Six60 originate from?\n(a) Auckland\n(b) Wellington\n(c) Dunedin\n(d) Christchurch\n\n ")
-answer_2 = "c"
+# Loop through each question
+for q in quiz_questions:
+    print(q["question"])
+    for key, value in q["options"].items():
+        print(f"({key}) {value}")
+    print()
 
-for i in range(chances):
-    answer = input("Answer: ")
-    if (answer.lower() == answer_2):
-        print("Correct!\n")
-        score = score + 1
-        break
-    else:
-        print("Incorrect!\n ")
-        time.sleep(0.5)
-        print("The correct answer is", answer_2, "\n\n ")
-        
-time.sleep(2)
-        
-#question 3
-question_3 = print("3) How many members are there?\n(a) 4\n(b) 6\n(c) 3\n(d) 7\n\n ")
-answer_3 = "b"
+    for i in range(chances):
+        answer = input("Answer: ").strip().lower()
+        correct_letter = q["answer_letter"]
+        correct_text = q["answer_text"].lower()
 
-for i in range(chances):
-    answer = input("Answer: ")
-    if (answer.lower() == answer_3):
-        print("Correct!\n")
-        score = score + 1
-        break
-    else:
-        print("Incorrect!\n ")
-        time.sleep(0.5)
-        print("The correct answer is", answer_3, "\n\n ")
-        
-time.sleep(2)
-        
-#question 4
-question_4 = print("4) What was Six60's 2020 documentry called?\n(a) Don't Forget Your Roots\n(b) Rise Up\n(c) Forever\n(d) Till the Lights Go Out\n\n ")
-answer_4 = "d"
+        # Check if user input matches letter or full text
+        if answer == correct_letter or answer == correct_text:
+            print("Correct!\n")
+            score += 1
+            break
+        else:
+            print("Incorrect!\n")
+            time.sleep(0.5)
+            print("The correct answer is", f"({correct_letter}) {q['answer_text']}", "\n")
+    
+    time.sleep(2)
 
-for i in range(chances):
-    answer = input("Answer: ")
-    if (answer.lower() == answer_4):
-        print("Correct!\n")
-        score = score + 1
-        break
-    else:
-        print("Incorrect!\n ")
-        time.sleep(0.5)
-        print("The correct answer is", answer_4, "\n\n ")
-        
-time.sleep(2)
-        
-#question 5
-question_5 = print("5) Which song did Six60 re-record in Te Reo Maori for Waiata/Anthems?\n(a) Sundown\n(b) Don't Forget Your Roots\n(c) Purple\n(d) Mothers Eyes\n\n ")
-answer_5 = "b"
-
-for i in range(chances):
-    answer = input("Answer: ")
-    if (answer.lower() == answer_5):
-        print("Correct!\n")
-        score = score + 1 
-        break
-    else:
-        print("Incorrect!\n ")
-        time.sleep(0.5)
-        print("The correct answer is", answer_5, "\n\n ")
-
-time.sleep(2)
-        
-#print the score   
-while score >= 2:
-    print("Well done! Your score was", score)
-    break
-
-while score < 2:
+# Final Score Output
+if score >= 2:
+    print("Well done! Your score is", score)
+else:
     print("Better luck next time! Your score was", score)
-    break
 
-#Goodbye Message 
-print("Thank you for playing! ")
+# Goodbye
+print("Thank you for playing!")
